@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan calculator</title>
+  </head>
+  <body>
+    <div>
+      <h2>Simple Interest</h2>
+      principal:
+      <input type="number" id="principal" />
+      Rate:
+      <input type="number" id="rate" />
+      Time:
+      <input type="number" id="time" />
+      <button onclick="SiCalculate()" type="submit">Calculate</button>
+      <p id="SI_Result"></p>
+      <p id="total_Amount"></p>
+    </div>
+
+    <div>
+      <h2>compound Interest</h2>
+      principal:
+      <input type="number" id="principal2" />
+      Rate:
+      <input type="number" id="rate2" />
+      Time:
+      <input type="number" id="time2" />
+      N:
+      <input type="number" id="no_times" />
+      <button onclick="CiCalculate()" type="submit">Calculate</button>
+      <p id="CI_Result"></p>
+      <p id="total_Amount2"></p>
+    </div>
+  </body>
+
+  <script>
+    function SiCalculate() {
+      let principal = document.getElementById("principal").value;
+      let rate = document.getElementById("rate").value;
+      let time = document.getElementById("time").value;
+      let SI = (principal * rate * time) / 100;
+      document.getElementById("SI_Result").innerText = `Simple interest: ${SI}`;
+      let total_amount = parseFloat(principal) + parseFloat(SI);
+      document.getElementById(
+        "total_Amount"
+      ).innerText = `Total amount:${total_amount}`;
+    }
+
+    function CiCalculate() {
+      let p = document.getElementById("principal2").value;
+      let r = document.getElementById("rate2").value;
+      let t = document.getElementById("time2").value;
+      let n = document.getElementById("no_times").value;
+      let A = p * Math.pow(1 + r / (100 * n), n * t);
+      let CI = A - p;
+      document.getElementById("CI_Result").innerText = `Compound Interest: ${CI.toFixed(2)}`;
+      document.getElementById("total_Amount2").innerText = `Total Amount: ${A.toFixed(2)}`;
+    }
+  </script>
+</html>

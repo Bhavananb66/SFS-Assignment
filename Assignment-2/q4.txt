@@ -1,0 +1,36 @@
+Q4: Box Model and Display
+
+a) Explain the CSS box model with a diagram.
+ =>  Content: The actual text or image.
+   Padding: Space inside the border, around the content.
+   Border: A line surrounding the padding and content.
+   Margin: Space outside the border, creating distance between elements.
+
+b) Differentiate between display: block, inline, inline-block, and none with HTML examples.
+  1)display: block
+    Takes full width by default.
+    Starts on a new line.
+    You can set width and height.
+  ex: <div style="display: block; background: lightblue;">Block Element</div>
+
+  2. display: inline
+    Takes only as much width as needed.
+    Does not start on a new line.
+    Cannot set width or height.
+    ex: <span style="display: inline; background: lightgreen;">Inline Element</span>
+
+ 3. display: inline-block
+    Flows inline, like inline.
+    Can set width and height, like block.
+    Does not start on a new line.
+    ex:<span style="display: inline-block; width: 100px; height: 30px; background: lightcoral;">Inline-Block</span>
+
+4. display: none
+   Element is not visible and removed from layout (no space reserved).
+   ex:<p style="display: none;"> This will not be displayed.</p>
+  
+c) Write a CSS rule to convert an inline element into a block-level box
+=> span {
+  display: block;
+}
+

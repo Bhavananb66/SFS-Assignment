@@ -1,0 +1,65 @@
+Q2: Selectors   
+a) Differentiate between element, class, ID, descendant, child, and attribute selectors.
+   =>Element Selector:
+Selects all elements of a specific type (e.g., all <p> tags).
+Example: p { color: red; }
+
+Class Selector:
+Selects elements with a specific class, using a dot (.) prefix. Can be reused on multiple elements.
+Example: .highlight { color: blue; }
+
+ID Selector:
+Selects a single, unique element with a specific id, using a hash (#) prefix.
+Example: #header { font-size: 20px; }
+
+Descendant Selector:
+Selects elements nested anywhere inside another element.
+Example: div p { color: green; } (styles all <p> inside any <div>)
+
+Child Selector:
+Selects elements that are direct children of another element, using > symbol.
+Example: div > p { font-weight: bold; }
+
+Attribute Selector:
+Selects elements based on the presence or value of an attribute.
+Example: input[type="text"] { border: 1px solid black; }
+
+
+b) Write one CSS rule using each type of selector.
+/* Element selector */
+h1 {
+    color: navy;
+}
+
+/* Class selector */
+.box {
+    padding: 20px;
+}
+
+/* ID selector */
+#main-title {
+    text-align: center;
+}
+
+/* Descendant selector */
+section p {
+    line-height: 1.6;
+}
+
+/* Child selector */
+ul > li {
+    list-style-type: square;
+}
+
+/* Attribute selector */
+a[target="_blank"] {
+    color: orange;
+}
+
+c) Given the following HTML snippet, write CSS rules using appropriate selectors to style the <p> elements inside <div class="container"> only.
+
+=> .container p {
+    color: darkblue;
+    font-style: italic;
+}
+

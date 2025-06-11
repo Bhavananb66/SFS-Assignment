@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try and catch block</title>
+  </head>
+  <body>
+    Age: <input type="number" id="age" />
+    <button type="submit" onclick="validateAge()">Submit</button>
+
+    <script>
+      function validateAge(){
+    try {
+        let input = document.getElementById("age").value;
+        
+        if(!input) {
+            throw new Error("Please enter an age");
+        }
+        
+        let age = parseInt(input);
+        
+        if(isNaN(age)) {
+            throw new Error("Please enter a valid number");
+        }
+        
+        if(age < 0 || age > 150) {
+            throw new Error("Please enter a realistic age");
+        }
+        
+        if(age < 18) {
+            console.log("You cannot vote");
+        } else {
+            console.log("You can vote");
+        }
+        
+    } catch(error) {
+        console.log(error.message);
+    }
+}
+    </script>
+  </body>
+</html>

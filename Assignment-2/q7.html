@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Flexbox Cards</title>
+  <style>
+    :root {
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      width: 30%; /* Desktop */
+      box-sizing: border-box;
+      min-height: 30vh;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-0.5rem);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Mobile View */
+    @media (max-width: 768px) {
+      .card {
+        width: 90%; /* Mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="card">
+      <h2>Card One</h2>
+      <p>This is a responsive card using Flexbox and rem units for scaling.</p>
+    </div>
+    <div class="card">
+      <h2>Card Two</h2>
+      <p>The layout adapts to different screen sizes using media queries.</p>
+    </div>
+    <div class="card">
+      <h2>Card Three</h2>
+      <p>Padding, margin, and borders are styled using the box model.</p>
+    </div>
+  </div>
+
+</body>
+</html>

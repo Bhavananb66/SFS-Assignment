@@ -1,0 +1,32 @@
+b) Explain how flex-direction, justify-content, and align-items work using diagrams.
+ flex-direction
+*Defines the main axis direction.
+
+row (default): items flow left to right
+→ → →
+
+column: items flow top to bottom
+↓
+↓
+↓
+
+*justify-content
+Aligns items along the main axis.
+
+flex-start: items stick to the start
+[item][item][item]
+
+center: items are centered
+ [item][item][item]
+
+space-between: equal space between items
+[item]  [item]  [item]
+
+* align-items
+Aligns items along the cross axis.
+
+flex-start: items align to the top/left
+
+center: items are centered vertically
+
+stretch: items stretch to fill height

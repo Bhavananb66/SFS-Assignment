@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope Safe Form Validator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        
+        <form id="myform" style="display: flex; flex-direction: column; gap:8px; border: 1px solid gray; margin-top: 50px;padding: 20px; border-radius: 10px; background-color: bisque; padding-bottom: 20px;">
+            <h3 style="text-align: center;">Login</h3>
+            <label>Username:</label> 
+            <input type="text" id="name" placeholder="Enter your name" style="padding: 5px;">
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" style="padding: 5px;">
+            <button type="submit" style="padding: 5px;">Submit</button>
+            <p id="message1"></p>
+            <p id="message2"></p>
+            <p id="message"></p>
+        </form>
+    </div>
+    
+    <script>
+
+        (function(){
+            let form = document.getElementById("myform");
+
+            form.addEventListener("submit", function(e){
+                e.preventDefault();
+
+                let Username = document.getElementById("name").value;
+                let password = document.getElementById("password").value;
+
+                function validateName(){
+                    if(Username.trim() === ""){
+                        return "Username is required";
+                    }
+                    else if(Username.length < 3){
+                        return "Username must be at least 3 characters"
+                    }
+                    return ;
+                    
+                }
+
+                function ValidatePassword(){
+                    if(password.trim() === ""){
+                        return "password is required";
+                    }
+                    else if(password.length < 3){
+                        return "password must be at least 3 characters"
+                    }
+                    return;
+                }
+
+                let user = validateName();
+                let pass = ValidatePassword();
+                if(user){
+                document.getElementById("message1").innerText = user;
+                }
+                if(pass){
+                    document.getElementById("message2").innerText = pass;
+                }
+                
+
+                if(!user && !pass){
+                    document.getElementById("message").innerText = "Form Submitted"
+                }
+            })
+
+        }) ();
+    </script>
+</body>
+</html>

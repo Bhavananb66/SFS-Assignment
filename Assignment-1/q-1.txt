@@ -1,0 +1,15 @@
+Q1. Understanding Semantic HTML5 Tags 
+a) Define semantic HTML. Why is it important for web accessibility and SEO?
+   A semantic element clearly describes its meaning to both the browser and the developer.
+   
+   By providing assistive technologies (like screen readers) with better context about page structure and content, helping users with disabilities navigate more effectively.
+   Search engines use semantic elements to better understand the page's structure and content hierarchy, which can improve indexing and search rankings.
+
+b) List five semantic HTML5 elements and explain their purpose.
+
+1. <header> - Represents the introductory content of a document or section. It often contains headings, logos, navigation links, or other opening elements.
+2. <nav> - It typically contains links to other pages or parts of the same page.
+3. <main>- Represents the main content of the document that is unique and central to the purpose of the page. There should only be one <main> element per page.
+4. <article>- Defines a self-contained piece of content that could be distributed or reused independently (like a blog post, news story, or forum post).
+5. <footer> - Represents the footer of a section or document. It often includes metadata like author information, related documents, or copyright notices.
+

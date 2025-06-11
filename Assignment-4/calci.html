@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div>
+      <form action="" id="calform">
+        <textarea
+          name="calcDisplay"
+          id="calcDisplay"
+          rows="4"
+          cols="38"
+          readonly
+        ></textarea>
+        <div style="display: grid; grid-template-columns: 100px 100px 100px">
+          <button onclick="inputedvalue(1)" id="one">1</button>
+          <button onclick="inputedvalue(2)" id="two">2</button>
+          <button onclick="inputedvalue(3)" id="three">3</button>
+          <button onclick="inputedvalue(4)" id="four">4</button>
+          <button onclick="inputedvalue(5)" id="five">5</button>
+          <button onclick="inputedvalue(6)" id="six">6</button>
+          <button onclick="inputedvalue(7)" id="seven">7</button>
+          <button onclick="inputedvalue(8)" id="eight">8</button>
+          <button onclick="inputedvalue(9)" id="nine">9</button>
+          <button onclick="inputedvalue(0)" id="zero">0</button>
+          <button onclick="inputedoperator('+')" id="plus">+</button>
+          <button onclick="inputedoperator('-')" id="minus">-</button>
+          <button onclick="inputedoperator('*')" id="multiply">*</button>
+          <button onclick="inputedoperator('/')" id="divide">/</button>
+          <button onclick="calculate('=')" id="equal">=</button>
+          <button onclick="clear()" >clear</button>
+          
+        </div>
+      </form>
+    </div>
+
+    <script>
+      let num1 = "";
+      let num2 = "";
+      let operator = "";
+
+      function inputedvalue(num) {
+        event.preventDefault();
+        num1 += num;
+        document.getElementById("calcDisplay").value = num1;
+      }
+
+        function inputedoperator(o) {
+            event.preventDefault();
+            if (num1 != "") {
+            operator = o;
+            num2 = num1;
+            num1 = "";
+            }
+            document.getElementById("calcDisplay").value =  num2 + " " + operator;
+        }
+
+      function calculate() {
+         event.preventDefault();
+        let result = 0;
+        const a = parseFloat(num2);
+        const b = parseFloat(num1);
+        if (operator === "+") result = a + b;
+        if (operator === "-") result = a - b;
+        if (operator === "*") result = a * b;
+        if (operator === "/") result = a / b;
+        document.getElementById("calcDisplay").value = result;
+        num1 = result.toString();
+        num2 = "";
+        operator = "";
+      }
+
+      function display(num1, num2, operator) {
+        document.getElementById("calcDisplay").value = num1 + " " + operator + " " + num2;
+      }
+
+      function clear(){
+        event.preventDefault();
+        num1 = "";
+        num2 = "";
+        operator = "";
+        document.getElementById("calcDisplay").value = "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+Q5: CSS Units 
+
+a) Explain the differences between px, em, rem, %, vw, and vh.
+
+ *The px unit stands for pixels and represents a fixed size, which doesn’t scale with the user’s settings, making it less responsive.
+ *The em unit is relative to the font size of the element’s parent, allowing it to scale based on context.
+ *rem stands for “root em” and is relative to the font size of the root element (<html>), providing consistent scaling across the page.
+ *The % unit is relative to the size of the parent element and is often used for widths and heights in layout design. 
+ *Viewport-based units like vw (viewport width) and vh (viewport height) are relative to the browser’s visible area, making them ideal for responsive layouts that adapt to screen size.
+b) When would you prefer to use em or rem over px?
+  Use em or rem:
+     For scalable, accessible layouts.
+     To respect user font-size settings (good for accessibility).
+     When building responsive designs that adjust gracefully across devices.
+
+  rem is more predictable than em because it's always relative to the root font size.
+
+c) Write a responsive heading that uses rem units and adapts well to font scaling.

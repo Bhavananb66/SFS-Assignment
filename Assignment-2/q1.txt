@@ -1,0 +1,40 @@
+Q1: CSS Syntax and Types
+
+a) Write the general syntax of a CSS rule.
+  selector {
+    property: value;
+}
+
+b) Explain the differences between inline, internal, and external CSS with suitable examples.
+   => *Inline CSS is written directly in the HTML element using the style attribute and is suitable for quick, one-off styling.
+      ex: <p style="color: red;">This is inline CSS.</p>
+
+      *Internal CSS is placed within a <style> tag in the <head> section and styles the entire page but is limited to that single file.
+      ex: <head>
+          <style> p {color: green;} </style>
+          </head> 
+          <body>
+          <p>This is internal CSS.</p>
+          </body> 
+
+      *External CSS uses a separate .css file linked via the <link> tag, making it ideal for large projects due to better reusability, maintainability, and separation of content and style.
+      ex:  <head>
+           <link rel="stylesheet" href="style.css">
+           </head>
+           <body><p>This is external CSS.</p></body>
+
+           style.css
+           p {  color: blue;}
+   
+        
+c) Which method is recommended for large-scale projects and why?
+
+=>External CSS is highly recommended for large-scale projects because:
+
+Separation of concerns: Keeps structure (HTML) and design (CSS) separate
+
+Reusability: One CSS file can style multiple pages
+
+Maintainability: Easier to update or fix styles globally
+
+Performance: CSS files are cached by browsers, improving load speed

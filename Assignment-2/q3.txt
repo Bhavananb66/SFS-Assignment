@@ -1,0 +1,20 @@
+Q3: Cascade, Specificity, and Inheritance
+
+a) Define cascade, specificity, and inheritance in CSS.
+ => * Cascade
+   The cascade is the process by which the browser determines which CSS rule applies when multiple rules target the same element. It considers:
+   Importance (!important)
+   Specificity
+   Source order (the last rule wins if specificity is equal)
+
+   *Specificity is a weight assigned to a selector to determine how strongly it applies to an element. Higher specificity wins over lower ones.
+
+   *Inheritance means some CSS properties (like color, font-family) are passed from a parent element to its children unless overridden. Not all properties are inherited.
+
+b) Given the following CSS rules, identify which one will be applied and explain why:
+#box { color: red; }
+.highlight { color: green; }
+div { color: blue; }
+<div id="box" class="highlight">Hello</div>
+
+=> color: red will be applied because #box has higher specificity than .highlight and div

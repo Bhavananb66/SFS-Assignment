@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Calculator</title>
+  </head>
+  <body>
+    <form
+      id="calcForm"
+      style="border: 1px solid black; padding: 10px; width: 250px"
+    >
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <input
+          id="num1"
+          type="number"
+          placeholder="input first number"
+          style="padding: 5px"
+        />
+        <input
+          id="num2"
+          type="number"
+          placeholder="input second number"
+          style="padding: 5px"
+        />
+        <input
+          id="operator"
+          type="text"
+          placeholder="input operator(+, -, *, /)"
+          style="padding: 5px"
+        />
+
+        <button type="submit" style="width: 100px">Submit</button>
+        <p id="result"></p>
+      </div>
+    </form>
+
+    <script>
+        function typeChecker(value) {
+            if(value === null) return "null";
+            if(Array.isArray(value)) return "array";
+            return typeof value;
+        }
+
+        function typeSafeCalculator(a,b,operator){
+            if(typeof a !== "number" || typeof b !== "number" || isNaN(a) || isNaN(b)){
+                return "invlid input";
+
+            }
+            switch(operator){
+                case "+":
+                    return a + b;
+                case "-":
+                    return a-b;
+                case "*":
+                    return a*b;
+                case "/":
+                    return b !== 0 ? a/b : "cannot divde by 0";
+                default:
+                    return "invalid operator";
+            }
+                
+            }
+        
+
+        document.getElementById("calcForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let num1 = Number(document.getElementById("num1").value)
+            let num2 = Number(document.getElementById("num2").value)
+            let operator = document.getElementById("operator").value.trim()
+            let resultBox = document.getElementById("result")
+            console.log(num1, num2, operator);
+
+            console.log("typeof num1",typeChecker(num1))
+            console.log("typeof num2",typeChecker(num2))
+            console.log("typeof operator",typeChecker(operator))
+            
+
+             const result =typeSafeCalculator(num1,num2,operator);
+             resultBox.innerText = `${num1} ${operator} ${num2} = ${result}`
+
+        });
+    </script>
+  </body>
+</html>

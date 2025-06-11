@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+Welcome to the sample video.
+
+00:00:03.001 --> 00:00:06.000
+This video demonstrates HTML5 video embedding.
+
+00:00:06.001 --> 00:00:09.000
+It also includes subtitles using WebVTT format.
+
+00:00:09.001 --> 00:00:12.000
+Thanks for watching!
