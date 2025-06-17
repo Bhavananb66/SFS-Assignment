@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reduce based Budget Tracker</title>
+</head>
+<body>
+    <form action="" id="myform">
+    <label>Income:</label>
+    <input type="number" placeholder="Enter Amount" id="income">
+    <label>expenditure:</label>
+    <input type="text" placeholder="Enter amount separated by comma" id="expenditure">
+    <button type="submit">Calculate</button>
+    <p id="result"></p>
+    </form>
+
+    <script>
+        document.getElementById("myform").addEventListener("submit",function(e){
+            e.preventDefault();
+            const income = document.getElementById("income").value;
+            const expe = document.getElementById("expenditure").value;
+
+            const expenditure = expe.split(",");
+            let remain = expenditure.reduce((a,b)=>a-b,income);
+            document.getElementById("result").innerText = `The remaining amount is ${remain}`;
+        });
+    </script>
+</body>
+</html>

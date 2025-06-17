@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Fetcher with Retry</title>
+  </head>
+  <body>
+    <h2>Weather Info</h2>
+    <input type="text" id="city" placeholder="Enter city" />
+    <button onclick="getWeather()">Get Weather</button>
+    <pre id="output"></pre>
+
+    <script>
+      async function fetchWeatherWithRetries(url, retries = 3, delay = 1000) {
+        for (let i = 0; i < retries; i++) {
+          try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("Server error");
+            const data = await res.json();
+            return data;
+          } catch (err) {
+            if (i < retries - 1) {
+              await new Promise(resolve => setTimeout(resolve, delay));
+            } else {
+              throw new Error("Failed after retries");
+            }
+          }
+        }
+      }
+
+      async function getWeather() {
+        const city = document.getElementById("city").value;
+        const output = document.getElementById("output");
+
+        const apiKey = "506bab67a535432faab113539251306"; // Replace with real key
+        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+        try {
+          output.innerText = "⏳ Fetching weather...";
+          const data = await fetchWeatherWithRetries(url, 3, 1000);
+          output.innerText = `🌤️ ${data.location.name}: ${data.current.temp_c}°C, ${data.current.condition.text}`;
+        } catch (err) {
+          output.innerText = "❌ Failed to load weather.";
+        }
+      }
+    </script>
+  </body>
+</html>

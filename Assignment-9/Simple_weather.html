@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple weather App</title>
+</head>
+<body>
+    <h2>Get Weather info</h2>
+    <input type="text" placeholder="Enter City name" id="city">
+    <button onclick="getWeather()">Get Weather</button>
+    <p id="result"></p>
+    <script>
+        async function getWeather() {
+            const city = document.getElementById("city").value;
+            const apiKey = "506bab67a535432faab113539251306"; 
+            const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                document.
+            } catch (error) {
+                
+            }
+        }
+    </script>
+
+</body>
+</html>
